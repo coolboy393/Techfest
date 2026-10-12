@@ -1,0 +1,2791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CyberGuard - Cyber Security Games</title>
+
+<style>
+
+/* =====================================================
+   GLOBAL
+===================================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #07152f;
+    color: white;
+    min-height: 100vh;
+}
+
+button {
+    cursor: pointer;
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+/* =====================================================
+   CYBERGUARD HOME
+===================================================== */
+
+#homeScreen {
+    min-height: 100vh;
+}
+
+.home-header {
+    background: #050d20;
+    padding: 22px 5%;
+    border-bottom: 3px solid #0875ff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.home-logo {
+    font-size: 28px;
+    font-weight: 900;
+}
+
+.home-badge {
+    background: #00ffff;
+    color: #03101d;
+    padding: 9px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.home-hero {
+    text-align: center;
+    padding: 65px 20px 50px;
+    background:
+        radial-gradient(circle at top, #123f8c, transparent 50%),
+        linear-gradient(135deg, #075cff, #07152f);
+}
+
+.home-shield {
+    font-size: 75px;
+    animation: shieldPulse 1.5s infinite alternate;
+}
+
+@keyframes shieldPulse {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.08);
+    }
+}
+
+.home-hero h1 {
+    font-size: 55px;
+    margin: 15px 0;
+    text-shadow:
+        0 0 10px #00ffff,
+        0 0 30px rgba(0,255,255,0.5);
+}
+
+.home-hero h1 span {
+    color: #00ffff;
+}
+
+.home-hero p {
+    font-size: 20px;
+    color: #d9faff;
+}
+
+.games-title {
+    text-align: center;
+    font-size: 30px;
+    margin: 40px 0 25px;
+}
+
+.game-menu {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+    padding-bottom: 50px;
+}
+
+.game-card {
+    min-height: 300px;
+    border-radius: 20px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: 0.3s;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.game-card:hover {
+    transform: translateY(-10px) scale(1.02);
+}
+
+.game-card:nth-child(1) {
+    background: linear-gradient(145deg, #ff3150, #8f1027);
+}
+
+.game-card:nth-child(2) {
+    background: linear-gradient(145deg, #ffe600, #c89f00);
+    color: #07152f;
+}
+
+.game-card:nth-child(3) {
+    background: linear-gradient(145deg, #14d9b1, #087f70);
+    color: #07152f;
+}
+
+.game-card:nth-child(4) {
+    background: linear-gradient(145deg, #0875ff, #063a91);
+}
+
+.game-icon {
+    font-size: 65px;
+    text-align: center;
+}
+
+.game-card h2 {
+    font-size: 23px;
+    margin: 15px 0;
+}
+
+.game-card p {
+    line-height: 1.5;
+}
+
+.game-card button {
+    border: none;
+    background: #07152f;
+    color: white;
+    padding: 14px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 15px;
+    margin-top: 20px;
+    transition: 0.2s;
+}
+
+.game-card button:hover {
+    transform: scale(1.04);
+    background: #020816;
+}
+
+
+/* =====================================================
+   COMMON GAME HEADER
+===================================================== */
+
+.game-header {
+    background: #050d20;
+    padding: 18px 5%;
+    border-bottom: 3px solid #0875ff;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.game-header h1 {
+    font-size: 25px;
+}
+
+.back-button {
+    width: auto;
+    margin: 0;
+    padding: 11px 18px;
+    background: #00ffff;
+    color: #03101d;
+    border-radius: 9px;
+    font-weight: 900;
+}
+
+
+/* =====================================================
+   PHISHING DETECTIVE
+===================================================== */
+
+#phishingGame {
+    min-height: 100vh;
+    background: #101827;
+}
+
+.phishing-container {
+    max-width: 850px;
+    margin: 45px auto;
+    width: 90%;
+}
+
+.phishing-title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.phishing-title h2 {
+    font-size: 40px;
+    color: #00ffff;
+}
+
+.phishing-title p {
+    margin-top: 10px;
+    color: #b9c7da;
+}
+
+.message-box {
+    background: #1e293b;
+    border: 2px solid #334155;
+    border-radius: 18px;
+    padding: 30px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.35);
+}
+
+.message-header {
+    border-bottom: 1px solid #475569;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.message-header div {
+    margin: 8px 0;
+}
+
+.message-label {
+    color: #94a3b8;
+    font-weight: bold;
+}
+
+.message-text {
+    background: #0f172a;
+    border-radius: 12px;
+    padding: 22px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.answer-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.answer-buttons button {
+    margin: 0;
+    padding: 15px;
+    font-size: 16px;
+}
+
+.safe-btn {
+    background: #16a34a;
+}
+
+.phish-btn {
+    background: #dc2626;
+}
+
+.next-btn {
+    background: #0875ff;
+    margin-top: 15px;
+}
+
+.phishing-score {
+    text-align: center;
+    font-size: 20px;
+    color: #ffe600;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+
+/* =====================================================
+   PASSWORD GAME
+===================================================== */
+
+#passwordGame {
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at top, #164e63, transparent 45%),
+        #07152f;
+}
+
+.password-container {
+    max-width: 700px;
+    width: 90%;
+    margin: 60px auto;
+    text-align: center;
+}
+
+.password-container h2 {
+    font-size: 42px;
+    color: #ffe600;
+    margin-bottom: 12px;
+}
+
+.password-container > p {
+    color: #d9faff;
+    margin-bottom: 30px;
+}
+
+.password-panel {
+    background: #0b213d;
+    border: 2px solid #00ffff;
+    border-radius: 20px;
+    padding: 35px;
+    box-shadow:
+        0 0 20px rgba(0,255,255,0.2);
+}
+
+.password-panel input {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 10px;
+    font-size: 17px;
+    outline: none;
+    margin-bottom: 15px;
+}
+
+.password-check {
+    background: #00ffff;
+    color: #03101d;
+    font-size: 16px;
+}
+
+.strength-bar {
+    width: 100%;
+    height: 18px;
+    background: #020817;
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 25px 0 15px;
+}
+
+.strength-fill {
+    height: 100%;
+    width: 0%;
+    background: #ef4444;
+    transition: 0.4s;
+}
+
+.password-result {
+    font-size: 25px;
+    font-weight: 900;
+    margin: 15px 0;
+}
+
+.password-score {
+    color: #cbd5e1;
+}
+
+
+/* =====================================================
+   ESCAPE ROOM
+===================================================== */
+
+#escapeGame {
+    min-height: 100vh;
+    background: #07152f;
+}
+
+.escape-header {
+    background: #050d20;
+    padding: 20px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid #0875ff;
+}
+
+.escape-header h1 {
+    font-size: 28px;
+}
+
+#escapeProgress {
+    color: #ffe600;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.escape-hero {
+    text-align: center;
+    padding: 45px 20px;
+    background: linear-gradient(135deg, #075cff, #07152f);
+}
+
+.escape-hero h2 {
+    font-size: 50px;
+    font-weight: 900;
+    margin-bottom: 15px;
+}
+
+.escape-hero h2 span {
+    background: #ffe600;
+    color: #07152f;
+    padding: 5px 15px;
+}
+
+.escape-hero p {
+    font-size: 20px;
+}
+
+.puzzles {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 35px 5%;
+}
+
+.escape-card {
+    min-height: 400px;
+    padding: 25px;
+    border-radius: 15px;
+    color: #07152f;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.escape-card:nth-child(1) {
+    background: #ffe600;
+}
+
+.escape-card:nth-child(2) {
+    background: #ff3150;
+    color: white;
+}
+
+.escape-card:nth-child(3) {
+    background: #14d9b1;
+}
+
+.escape-card:nth-child(4) {
+    background: #0875ff;
+    color: white;
+}
+
+.number {
+    font-size: 45px;
+    font-weight: 900;
+}
+
+.icon {
+    font-size: 55px;
+    text-align: center;
+}
+
+.escape-card h3 {
+    font-size: 24px;
+    margin: 15px 0;
+}
+
+.escape-card p {
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.escape-card input {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    margin: 8px 0;
+    font-size: 15px;
+}
+
+.escape-card button {
+    width: 100%;
+    padding: 13px;
+    border: none;
+    border-radius: 8px;
+    background: #07152f;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 8px;
+}
+
+.option {
+    background: white;
+    color: #07152f;
+    padding: 12px;
+    border-radius: 8px;
+    margin: 7px 0;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.option:hover {
+    background: #ddd;
+    transform: translateX(4px);
+}
+
+.exit-container {
+    text-align: center;
+    padding: 20px 5% 50px;
+}
+
+.exit-button {
+    max-width: 300px;
+    background: #ffe600 !important;
+    color: #07152f !important;
+    font-size: 20px;
+}
+
+.escape-screen {
+    position: fixed;
+    inset: 0;
+    background: #07152f;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 100;
+}
+
+.escape-box {
+    background: #ffe600;
+    color: #07152f;
+    padding: 50px;
+    border-radius: 20px;
+    max-width: 600px;
+    width: 90%;
+}
+
+.escape-box h1 {
+    font-size: 55px;
+    margin-bottom: 20px;
+}
+
+.escape-box p {
+    font-size: 20px;
+    margin-bottom: 25px;
+}
+
+.escape-box button {
+    background: #07152f;
+    color: white;
+}
+
+
+/* =====================================================
+   CYBER SAFETY QUIZ
+===================================================== */
+
+#quizGame {
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at top, #172554, transparent 50%),
+        #07152f;
+}
+
+.quiz-container {
+    max-width: 800px;
+    width: 90%;
+    margin: 45px auto;
+}
+
+.quiz-title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.quiz-title h2 {
+    font-size: 42px;
+    color: #00ffff;
+}
+
+.quiz-title p {
+    margin-top: 10px;
+    color: #cbd5e1;
+}
+
+.quiz-box {
+    background: #0b213d;
+    border: 2px solid #0875ff;
+    border-radius: 20px;
+    padding: 35px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.35);
+}
+
+.quiz-question-number {
+    color: #ffe600;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.quiz-question {
+    font-size: 25px;
+    margin-bottom: 25px;
+}
+
+.quiz-option {
+    background: #162d4b;
+    border: 1px solid #315477;
+    padding: 16px;
+    border-radius: 10px;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.quiz-option:hover {
+    background: #21466e;
+    transform: translateX(5px);
+}
+
+.quiz-score {
+    text-align: center;
+    color: #ffe600;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.quiz-next {
+    background: #0875ff;
+}
+
+
+/* =====================================================
+   CUSTOM CYBERGUARD POPUP
+===================================================== */
+
+.popup-overlay {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.78);
+
+    backdrop-filter: blur(8px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: 0.3s ease;
+
+    z-index: 9999;
+}
+
+.popup-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.cyber-popup {
+    position: relative;
+
+    width: min(460px, 90%);
+
+    padding: 35px 30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #06152d,
+            #092b4d
+        );
+
+    border: 2px solid #00ffff;
+
+    border-radius: 22px;
+
+    text-align: center;
+
+    box-shadow:
+        0 0 15px #00ffff,
+        0 0 40px rgba(0,255,255,0.5),
+        inset 0 0 30px rgba(0,255,255,0.08);
+
+    transform: scale(0.7) translateY(30px);
+
+    transition: 0.35s ease;
+}
+
+.popup-overlay.show .cyber-popup {
+    transform: scale(1) translateY(0);
+}
+
+.cyber-popup::before {
+    content: "";
+
+    position: absolute;
+
+    inset: -5px;
+
+    border-radius: 25px;
+
+    border: 1px solid rgba(0,255,255,0.5);
+
+    animation: popupGlow 1.5s infinite alternate;
+
+    pointer-events: none;
+}
+
+@keyframes popupGlow {
+
+    from {
+        opacity: 0.25;
+        box-shadow: 0 0 5px #00ffff;
+    }
+
+    to {
+        opacity: 1;
+        box-shadow:
+            0 0 15px #00ffff,
+            0 0 30px rgba(0,255,255,0.4);
+    }
+
+}
+
+.popup-icon {
+    width: 80px;
+    height: 80px;
+
+    margin: 0 auto 18px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+
+    background: rgba(0,255,255,0.08);
+
+    border: 2px solid #00ffff;
+
+    font-size: 42px;
+
+    box-shadow:
+        0 0 15px rgba(0,255,255,0.6),
+        inset 0 0 15px rgba(0,255,255,0.15);
+
+    animation: iconPulse 1.2s infinite alternate;
+}
+
+@keyframes iconPulse {
+
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.08);
+    }
+
+}
+
+.cyber-popup h2 {
+    font-size: 25px;
+
+    color: #00ffff;
+
+    margin-bottom: 15px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+
+    text-shadow:
+        0 0 8px #00ffff,
+        0 0 20px rgba(0,255,255,0.5);
+}
+
+.cyber-popup p {
+    color: #d9faff;
+
+    font-size: 16px;
+
+    line-height: 1.7;
+
+    white-space: pre-line;
+
+    margin-bottom: 25px;
+}
+
+.popup-button {
+    width: auto;
+
+    min-width: 130px;
+
+    padding: 13px 28px;
+
+    background: #00ffff;
+
+    color: #03101d;
+
+    border: none;
+
+    border-radius: 10px;
+
+    font-size: 16px;
+
+    font-weight: 900;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 10px #00ffff,
+        0 0 25px rgba(0,255,255,0.5);
+
+    transition: 0.25s;
+}
+
+.popup-button:hover {
+    transform: scale(1.08);
+
+    box-shadow:
+        0 0 15px #00ffff,
+        0 0 35px #00ffff;
+}
+
+.cyber-popup.success {
+    border-color: #00ff99;
+
+    box-shadow:
+        0 0 15px #00ff99,
+        0 0 45px rgba(0,255,153,0.45),
+        inset 0 0 30px rgba(0,255,153,0.08);
+}
+
+.cyber-popup.success::before {
+    border-color: rgba(0,255,153,0.5);
+}
+
+.cyber-popup.success .popup-icon {
+    border-color: #00ff99;
+
+    box-shadow:
+        0 0 15px #00ff99,
+        inset 0 0 15px rgba(0,255,153,0.15);
+}
+
+.cyber-popup.success h2 {
+    color: #00ff99;
+
+    text-shadow:
+        0 0 8px #00ff99,
+        0 0 20px rgba(0,255,153,0.5);
+}
+
+.cyber-popup.error {
+    border-color: #ff3150;
+
+    box-shadow:
+        0 0 15px #ff3150,
+        0 0 45px rgba(255,49,80,0.45),
+        inset 0 0 30px rgba(255,49,80,0.08);
+}
+
+.cyber-popup.error::before {
+    border-color: rgba(255,49,80,0.5);
+}
+
+.cyber-popup.error .popup-icon {
+    border-color: #ff3150;
+
+    box-shadow:
+        0 0 15px #ff3150,
+        inset 0 0 15px rgba(255,49,80,0.15);
+}
+
+.cyber-popup.error h2 {
+    color: #ff5c73;
+
+    text-shadow:
+        0 0 8px #ff3150,
+        0 0 20px rgba(255,49,80,0.5);
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 1000px) {
+
+    .game-menu {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .puzzles {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .game-menu {
+        grid-template-columns: 1fr;
+    }
+
+    .puzzles {
+        grid-template-columns: 1fr;
+    }
+
+    .home-hero h1 {
+        font-size: 38px;
+    }
+
+    .home-logo {
+        font-size: 20px;
+    }
+
+    .home-badge {
+        font-size: 12px;
+    }
+
+    .escape-hero h2 {
+        font-size: 35px;
+    }
+
+    .escape-header h1 {
+        font-size: 20px;
+    }
+
+    .answer-buttons {
+        grid-template-columns: 1fr;
+    }
+
+    .cyber-popup {
+        padding: 30px 20px;
+    }
+
+    .popup-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 35px;
+    }
+
+    .cyber-popup h2 {
+        font-size: 21px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+
+<!-- =====================================================
+     CYBERGUARD HOME
+===================================================== -->
+
+<div id="homeScreen">
+
+    <header class="home-header">
+
+        <div class="home-logo">
+            🛡️ CYBER GUARD
+        </div>
+
+        <div class="home-badge">
+            🔐 SECURITY CENTER
+        </div>
+
+    </header>
+
+
+    <section class="home-hero">
+
+        <div class="home-shield">
+            🛡️
+        </div>
+
+        <h1>
+            CYBER<span>GUARD</span>
+        </h1>
+
+        <p>
+            Learn. Play. Protect yourself online.
+        </p>
+
+    </section>
+
+
+    <h2 class="games-title">
+        🎮 CHOOSE YOUR CYBER GAME
+    </h2>
+
+
+    <section class="game-menu">
+
+
+        <!-- GAME 1 -->
+
+        <div class="game-card">
+
+            <div>
+
+                <div class="game-icon">
+                    🎣
+                </div>
+
+                <h2>
+                    Phishing Detective
+                </h2>
+
+                <p>
+                    Investigate suspicious messages
+                    and identify phishing attempts.
+                </p>
+
+            </div>
+
+            <button onclick="openGame('phishingGame')">
+                PLAY GAME →
+            </button>
+
+        </div>
+
+
+        <!-- GAME 2 -->
+
+        <div class="game-card">
+
+            <div>
+
+                <div class="game-icon">
+                    🔑
+                </div>
+
+                <h2>
+                    Password Strength
+                </h2>
+
+                <p>
+                    Test whether a password meets
+                    important security requirements.
+                </p>
+
+            </div>
+
+            <button onclick="openGame('passwordGame')">
+                PLAY GAME →
+            </button>
+
+        </div>
+
+
+        <!-- GAME 3 -->
+
+        <div class="game-card">
+
+            <div>
+
+                <div class="game-icon">
+                    🚪
+                </div>
+
+                <h2>
+                    Cyber Security Escape Room
+                </h2>
+
+                <p>
+                    Solve all 4 cyber-security puzzles
+                    and unlock the exit.
+                </p>
+
+            </div>
+
+            <button onclick="openGame('escapeGame')">
+                ENTER ESCAPE ROOM →
+            </button>
+
+        </div>
+
+
+        <!-- GAME 4 -->
+
+        <div class="game-card">
+
+            <div>
+
+                <div class="game-icon">
+                    🧠
+                </div>
+
+                <h2>
+                    Cyber Safety Quiz
+                </h2>
+
+                <p>
+                    Test your knowledge of safe
+                    internet habits.
+                </p>
+
+            </div>
+
+            <button onclick="openGame('quizGame')">
+                START QUIZ →
+            </button>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+
+<!-- =====================================================
+     PHISHING DETECTIVE
+===================================================== -->
+
+<div id="phishingGame" class="hidden">
+
+    <header class="game-header">
+
+        <h1>
+            🎣 Phishing Detective
+        </h1>
+
+        <button
+            class="back-button"
+            onclick="showHome()">
+            🏠 CyberGuard
+        </button>
+
+    </header>
+
+
+    <div class="phishing-container">
+
+        <div class="phishing-title">
+
+            <h2>
+                🕵️ DETECT THE THREAT
+            </h2>
+
+            <p>
+                Decide whether each message is SAFE or PHISHING.
+            </p>
+
+        </div>
+
+
+        <div class="message-box">
+
+            <div class="message-header">
+
+                <div>
+                    <span class="message-label">
+                        FROM:
+                    </span>
+
+                    <span id="phishingSender">
+                    </span>
+                </div>
+
+                <div>
+                    <span class="message-label">
+                        SUBJECT:
+                    </span>
+
+                    <span id="phishingSubject">
+                    </span>
+                </div>
+
+            </div>
+
+
+            <div
+                class="message-text"
+                id="phishingText">
+            </div>
+
+
+            <div class="answer-buttons">
+
+                <button
+                    class="safe-btn"
+                    onclick="answerPhishing('safe')">
+
+                    ✅ SAFE
+
+                </button>
+
+                <button
+                    class="phish-btn"
+                    onclick="answerPhishing('phishing')">
+
+                    🚨 PHISHING
+
+                </button>
+
+            </div>
+
+
+            <button
+                class="next-btn hidden"
+                id="nextPhishingButton"
+                onclick="nextPhishing()">
+
+                NEXT MESSAGE →
+
+            </button>
+
+        </div>
+
+
+        <div class="phishing-score">
+            Score: <span id="phishingScore">0</span>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     PASSWORD GAME
+===================================================== -->
+
+<div id="passwordGame" class="hidden">
+
+    <header class="game-header">
+
+        <h1>
+            🔑 Password Strength Challenge
+        </h1>
+
+        <button
+            class="back-button"
+            onclick="showHome()">
+            🏠 CyberGuard
+        </button>
+
+    </header>
+
+
+    <div class="password-container">
+
+        <h2>
+            🔐 TEST YOUR PASSWORD
+        </h2>
+
+        <p>
+            Check how many important password requirements
+            your password meets.
+        </p>
+
+
+        <div class="password-panel">
+
+            <input
+                type="password"
+                id="passwordInput"
+                placeholder="Enter a password"
+            >
+
+
+            <button
+                class="password-check"
+                onclick="checkPasswordStrength()">
+
+                CHECK PASSWORD
+
+            </button>
+
+
+            <div class="strength-bar">
+
+                <div
+                    class="strength-fill"
+                    id="strengthFill">
+                </div>
+
+            </div>
+
+
+            <div
+                class="password-result"
+                id="passwordResult">
+
+                ENTER A PASSWORD
+
+            </div>
+
+
+            <div
+                class="password-score"
+                id="passwordScore">
+
+                Score: 0 / 4
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     CYBER SECURITY ESCAPE ROOM
+===================================================== -->
+
+<div id="escapeGame" class="hidden">
+
+    <header class="escape-header">
+
+        <h1>
+            🛡️ CYBER GUARD
+        </h1>
+
+        <div id="escapeProgress">
+            Puzzles: 0/4
+        </div>
+
+    </header>
+
+
+    <section class="escape-hero">
+
+        <h2>
+            CYBER SECURITY
+            <br>
+            <span>ESCAPE ROOM</span>
+        </h2>
+
+        <p>
+            Think. Click. Protect. Solve all 4 puzzles to escape!
+        </p>
+
+    </section>
+
+
+    <section class="puzzles">
+
+
+        <!-- PUZZLE 1 -->
+
+        <div class="escape-card">
+
+            <div>
+
+                <div class="number">
+                    01
+                </div>
+
+                <div class="icon">
+                    🔐
+                </div>
+
+                <h3>
+                    CHOOSE A STRONG PASSWORD
+                </h3>
+
+                <p>
+                    Create a password with at least 8 characters,
+                    uppercase and lowercase letters, numbers and a symbol.
+                </p>
+
+                <input
+                    type="password"
+                    id="escapePassword"
+                    placeholder="Enter your password"
+                >
+
+            </div>
+
+            <button onclick="checkEscapePassword()">
+                CHECK PASSWORD →
+            </button>
+
+        </div>
+
+
+        <!-- PUZZLE 2 -->
+
+        <div class="escape-card">
+
+            <div>
+
+                <div class="number">
+                    02
+                </div>
+
+                <div class="icon">
+                    📩
+                </div>
+
+                <h3>
+                    IDENTIFY A PHISHING MESSAGE
+                </h3>
+
+                <p>
+
+                    You receive this message:
+
+                    <br><br>
+
+                    <b>
+                    "URGENT! You won a prize!
+                    Click this link immediately to claim it!"
+                    </b>
+
+                    <br><br>
+
+                    What type of message is this?
+
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <div
+                    class="option"
+                    onclick="checkEscapePhishing('safe')">
+
+                    ✅ Safe message
+
+                </div>
+
+
+                <div
+                    class="option"
+                    onclick="checkEscapePhishing('phishing')">
+
+                    🚨 Phishing message
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- PUZZLE 3 -->
+
+        <div class="escape-card">
+
+            <div>
+
+                <div class="number">
+                    03
+                </div>
+
+                <div class="icon">
+                    🛡️
+                </div>
+
+                <h3>
+                    CHOOSE SAFE PERSONAL INFORMATION
+                </h3>
+
+                <p>
+                    Which piece of information is generally
+                    safer to share online?
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <div
+                    class="option"
+                    onclick="checkPersonalInfo('password')">
+
+                    🔑 My password
+
+                </div>
+
+
+                <div
+                    class="option"
+                    onclick="checkPersonalInfo('address')">
+
+                    🏠 My home address
+
+                </div>
+
+
+                <div
+                    class="option"
+                    onclick="checkPersonalInfo('hobby')">
+
+                    🎮 My hobby
+
+                </div>
+
+
+                <div
+                    class="option"
+                    onclick="checkPersonalInfo('phone')">
+
+                    📱 My phone number
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- PUZZLE 4 -->
+
+        <div class="escape-card">
+
+            <div>
+
+                <div class="number">
+                    04
+                </div>
+
+                <div class="icon">
+                    🧠
+                </div>
+
+                <h3>
+                    CYBER-SAFETY QUESTION
+                </h3>
+
+                <p>
+                    Which security feature adds an extra
+                    layer of protection to your account?
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <div
+                    class="option"
+                    onclick="checkCyberSafety('password')">
+
+                    🔑 Using only a password
+
+                </div>
+
+
+                <div
+                    class="option"
+                    onclick="checkCyberSafety('2fa')">
+
+                    🔐 Two-factor authentication
+
+                </div>
+
+
+                <div
+                    class="option"
+                    onclick="checkCyberSafety('sharing')">
+
+                    📢 Sharing your password
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <div class="exit-container">
+
+        <button
+            class="exit-button"
+            onclick="escapeRoom()">
+
+            🚪 TRY TO ESCAPE
+
+        </button>
+
+    </div>
+
+
+    <div
+        class="escape-screen"
+        id="escapeScreen">
+
+        <div class="escape-box">
+
+            <h1>
+                🎉 YOU ESCAPED!
+            </h1>
+
+            <p>
+                Excellent work! You solved all 4
+                cyber-security puzzles.
+            </p>
+
+            <p>
+                🛡️ Stay smart. Stay safe online.
+            </p>
+
+            <button onclick="resetEscapeRoom()">
+                PLAY AGAIN
+            </button>
+
+            <button onclick="closeEscapeScreen()">
+                🏠 CYBERGUARD
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     CYBER SAFETY QUIZ
+===================================================== -->
+
+<div id="quizGame" class="hidden">
+
+    <header class="game-header">
+
+        <h1>
+            🧠 Cyber Safety Quiz
+        </h1>
+
+        <button
+            class="back-button"
+            onclick="showHome()">
+
+            🏠 CyberGuard
+
+        </button>
+
+    </header>
+
+
+    <div class="quiz-container">
+
+        <div class="quiz-title">
+
+            <h2>
+                🧠 CYBER SAFETY QUIZ
+            </h2>
+
+            <p>
+                Test your knowledge of safe internet habits.
+            </p>
+
+        </div>
+
+
+        <div class="quiz-box">
+
+            <div
+                class="quiz-question-number"
+                id="quizQuestionNumber">
+
+                Question 1 of 5
+
+            </div>
+
+
+            <div
+                class="quiz-question"
+                id="quizQuestion">
+
+            </div>
+
+
+            <div id="quizOptions">
+            </div>
+
+
+            <button
+                class="quiz-next hidden"
+                id="quizNext"
+                onclick="nextQuizQuestion()">
+
+                NEXT QUESTION →
+
+            </button>
+
+        </div>
+
+
+        <div class="quiz-score">
+
+            Score:
+            <span id="quizScore">
+                0
+            </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     CUSTOM POPUP
+===================================================== -->
+
+<div
+    class="popup-overlay"
+    id="popupOverlay">
+
+    <div
+        class="cyber-popup"
+        id="cyberPopup">
+
+        <div
+            class="popup-icon"
+            id="popupIcon">
+
+            ⚡
+
+        </div>
+
+
+        <h2 id="popupTitle">
+            SYSTEM MESSAGE
+        </h2>
+
+
+        <p id="popupMessage">
+            Message
+        </p>
+
+
+        <button
+            class="popup-button"
+            onclick="closeCyberPopup()">
+
+            OK ✓
+
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<script>
+
+/* =====================================================
+   SCREEN CONTROL
+===================================================== */
+
+const screens = [
+    "phishingGame",
+    "passwordGame",
+    "escapeGame",
+    "quizGame"
+];
+
+
+function openGame(gameId) {
+
+    document
+        .getElementById("homeScreen")
+        .classList.add("hidden");
+
+    screens.forEach(function(id) {
+
+        document
+            .getElementById(id)
+            .classList.add("hidden");
+
+    });
+
+    document
+        .getElementById(gameId)
+        .classList.remove("hidden");
+
+    window.scrollTo(0, 0);
+
+}
+
+
+function showHome() {
+
+    screens.forEach(function(id) {
+
+        document
+            .getElementById(id)
+            .classList.add("hidden");
+
+    });
+
+    document
+        .getElementById("homeScreen")
+        .classList.remove("hidden");
+
+    window.scrollTo(0, 0);
+
+}
+
+
+/* =====================================================
+   CYBERGUARD POPUP
+===================================================== */
+
+function showCyberPopup(
+    message,
+    type = "normal",
+    title = "SYSTEM MESSAGE",
+    icon = "⚡"
+) {
+
+    const overlay =
+        document.getElementById("popupOverlay");
+
+    const popup =
+        document.getElementById("cyberPopup");
+
+    document
+        .getElementById("popupIcon")
+        .innerText = icon;
+
+    document
+        .getElementById("popupTitle")
+        .innerText = title;
+
+    document
+        .getElementById("popupMessage")
+        .innerText = message;
+
+    popup.classList.remove("success", "error");
+
+    if (type === "success") {
+        popup.classList.add("success");
+    }
+
+    if (type === "error") {
+        popup.classList.add("error");
+    }
+
+    overlay.classList.add("show");
+
+}
+
+
+function closeCyberPopup() {
+
+    document
+        .getElementById("popupOverlay")
+        .classList.remove("show");
+
+}
+
+
+document
+    .getElementById("popupOverlay")
+    .addEventListener("click", function(event) {
+
+        if (event.target === this) {
+            closeCyberPopup();
+        }
+
+    });
+
+
+document.addEventListener("keydown", function(event) {
+
+    if (
+        event.key === "Enter" &&
+        document
+            .getElementById("popupOverlay")
+            .classList.contains("show")
+    ) {
+
+        closeCyberPopup();
+
+    }
+
+});
+
+
+/* =====================================================
+   PHISHING DETECTIVE
+===================================================== */
+
+const phishingMessages = [
+
+    {
+        sender: "security@paypa1-support.com",
+
+        subject:
+            "Your account will be closed today!",
+
+        text:
+            "We detected suspicious activity on your account. Verify your account immediately by clicking the link below.",
+
+        answer: "phishing",
+
+        explanation:
+            "The domain uses 'paypa1' instead of 'paypal'. The message also creates urgency and asks you to verify your account."
+    },
+
+    {
+        sender: "teacher@school.edu",
+
+        subject:
+            "Class schedule for Monday",
+
+        text:
+            "Hi students, the updated class schedule for Monday is attached. Please review it before class.",
+
+        answer: "safe",
+
+        explanation:
+            "The sender uses the expected school domain and the message does not ask for passwords, money, or suspicious actions."
+    },
+
+    {
+        sender: "winner@free-prizes-example.com",
+
+        subject:
+            "🎉 You WON $5,000!",
+
+        text:
+            "Congratulations! You have won our special prize. Click here immediately and enter your bank details to receive your money.",
+
+        answer: "phishing",
+
+        explanation:
+            "Unexpected prizes, requests for banking information, and pressure to act immediately are common phishing warning signs."
+    },
+
+    {
+        sender: "library@citylibrary.org",
+
+        subject:
+            "Your library books are due",
+
+        text:
+            "This is a reminder that your borrowed books are due next Friday. Please return them to the library.",
+
+        answer: "safe",
+
+        explanation:
+            "This is a normal reminder and does not request sensitive information or suspicious links."
+    },
+
+    {
+        sender: "admin@micros0ft-security.com",
+
+        subject:
+            "Urgent: Verify your Microsoft account",
+
+        text:
+            "Your account will be permanently disabled unless you confirm your password within 30 minutes. Click the link to continue.",
+
+        answer: "phishing",
+
+        explanation:
+            "The sender uses a suspicious domain ('micros0ft' with a zero), asks for a password, and uses extreme urgency."
+    }
+
+];
+
+
+let phishingIndex = 0;
+let phishingScore = 0;
+let phishingAnswered = false;
+
+
+function loadPhishingMessage() {
+
+    const message =
+        phishingMessages[phishingIndex];
+
+    document
+        .getElementById("phishingSender")
+        .innerText = message.sender;
+
+    document
+        .getElementById("phishingSubject")
+        .innerText = message.subject;
+
+    document
+        .getElementById("phishingText")
+        .innerText = message.text;
+
+    document
+        .getElementById("nextPhishingButton")
+        .classList.add("hidden");
+
+    phishingAnswered = false;
+
+}
+
+
+function answerPhishing(answer) {
+
+    if (phishingAnswered) {
+        return;
+    }
+
+    phishingAnswered = true;
+
+    const message =
+        phishingMessages[phishingIndex];
+
+    if (answer === message.answer) {
+
+        phishingScore += 100;
+
+        document
+            .getElementById("phishingScore")
+            .innerText = phishingScore;
+
+        showCyberPopup(
+            "Correct! " + message.explanation,
+            "success",
+            "THREAT IDENTIFIED",
+            "🛡️"
+        );
+
+    }
+
+    else {
+
+        showCyberPopup(
+            "Not quite. " + message.explanation,
+            "error",
+            "BE CAREFUL",
+            "⚠️"
+        );
+
+    }
+
+    document
+        .getElementById("nextPhishingButton")
+        .classList.remove("hidden");
+
+}
+
+
+function nextPhishing() {
+
+    phishingIndex++;
+
+    if (phishingIndex >= phishingMessages.length) {
+
+        let rank;
+
+        if (phishingScore === 500) {
+            rank = "🏆 Phishing Master!";
+        }
+
+        else if (phishingScore >= 300) {
+            rank = "🛡️ Security Investigator!";
+        }
+
+        else if (phishingScore >= 200) {
+            rank = "🔎 Cyber Sleuth!";
+        }
+
+        else {
+            rank = "🕵️ Rookie Detective!";
+        }
+
+        showCyberPopup(
+            "Final Score: " +
+            phishingScore +
+            "/500\n\n" +
+            rank,
+            "success",
+            "MISSION COMPLETE",
+            "🎉"
+        );
+
+        phishingIndex = 0;
+        phishingScore = 0;
+
+        document
+            .getElementById("phishingScore")
+            .innerText = "0";
+
+        loadPhishingMessage();
+
+        return;
+    }
+
+    loadPhishingMessage();
+
+}
+
+
+/* =====================================================
+   PASSWORD STRENGTH
+===================================================== */
+
+function checkPasswordStrength() {
+
+    const password =
+        document
+            .getElementById("passwordInput")
+            .value;
+
+    let passwordScore = 0;
+
+    if (password.length >= 8) {
+        passwordScore++;
+    }
+
+    if (/[A-Z]/.test(password)) {
+        passwordScore++;
+    }
+
+    if (/[0-9]/.test(password)) {
+        passwordScore++;
+    }
+
+    if (/[^A-Za-z0-9]/.test(password)) {
+        passwordScore++;
+    }
+
+
+    const result =
+        document.getElementById("passwordResult");
+
+    const fill =
+        document.getElementById("strengthFill");
+
+
+    document
+        .getElementById("passwordScore")
+        .innerText =
+        "Score: " + passwordScore + " / 4";
+
+
+    if (passwordScore <= 1) {
+
+        result.innerText =
+            "🔴 WEAK PASSWORD";
+
+        fill.style.width = "25%";
+        fill.style.background = "#ef4444";
+
+    }
+
+    else if (passwordScore <= 3) {
+
+        result.innerText =
+            "🟡 MEDIUM PASSWORD";
+
+        fill.style.width = "65%";
+        fill.style.background = "#f59e0b";
+
+    }
+
+    else {
+
+        result.innerText =
+            "🟢 STRONG PASSWORD";
+
+        fill.style.width = "100%";
+        fill.style.background = "#22c55e";
+
+    }
+
+}
+
+
+/* =====================================================
+   ESCAPE ROOM
+===================================================== */
+
+let escapeCompleted = 0;
+
+let escapeSolved = {
+
+    password: false,
+    phishing: false,
+    personal: false,
+    safety: false
+
+};
+
+
+function updateEscapeProgress() {
+
+    document
+        .getElementById("escapeProgress")
+        .innerText =
+        "Puzzles: " +
+        escapeCompleted +
+        "/4";
+
+}
+
+
+/* =====================================================
+   ESCAPE PUZZLE 1
+===================================================== */
+
+function checkEscapePassword() {
+
+    if (escapeSolved.password) {
+
+        showCyberPopup(
+            "You already solved this puzzle!",
+            "success",
+            "PUZZLE COMPLETE",
+            "✅"
+        );
+
+        return;
+    }
+
+
+    const password =
+        document
+            .getElementById("escapePassword")
+            .value;
+
+
+    const strong =
+        password.length >= 8 &&
+        /[A-Z]/.test(password) &&
+        /[a-z]/.test(password) &&
+        /[0-9]/.test(password) &&
+        /[^A-Za-z0-9]/.test(password);
+
+
+    if (strong) {
+
+        showCyberPopup(
+            "Your password meets all the strength requirements.",
+            "success",
+            "ACCESS GRANTED",
+            "🔐"
+        );
+
+        escapeSolved.password = true;
+
+        escapeCompleted++;
+
+        updateEscapeProgress();
+
+    }
+
+    else {
+
+        showCyberPopup(
+            "Use:\n• At least 8 characters\n• Uppercase letter\n• Lowercase letter\n• Number\n• Symbol",
+            "error",
+            "WEAK PASSWORD",
+            "⚠️"
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   ESCAPE PUZZLE 2
+===================================================== */
+
+function checkEscapePhishing(answer) {
+
+    if (escapeSolved.phishing) {
+
+        showCyberPopup(
+            "You already solved this puzzle!",
+            "success",
+            "PUZZLE COMPLETE",
+            "✅"
+        );
+
+        return;
+    }
+
+
+    if (answer === "phishing") {
+
+        showCyberPopup(
+            "The urgent prize message is a phishing attempt.",
+            "success",
+            "THREAT IDENTIFIED",
+            "🚨"
+        );
+
+        escapeSolved.phishing = true;
+
+        escapeCompleted++;
+
+        updateEscapeProgress();
+
+    }
+
+    else {
+
+        showCyberPopup(
+            "Be careful with urgent messages and suspicious links.",
+            "error",
+            "PHISHING ALERT",
+            "⚠️"
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   ESCAPE PUZZLE 3
+===================================================== */
+
+function checkPersonalInfo(answer) {
+
+    if (escapeSolved.personal) {
+
+        showCyberPopup(
+            "You already solved this puzzle!",
+            "success",
+            "PUZZLE COMPLETE",
+            "✅"
+        );
+
+        return;
+    }
+
+
+    if (answer === "hobby") {
+
+        showCyberPopup(
+            "A hobby is generally less sensitive than passwords, addresses or phone numbers.",
+            "success",
+            "CORRECT ANSWER",
+            "🛡️"
+        );
+
+        escapeSolved.personal = true;
+
+        escapeCompleted++;
+
+        updateEscapeProgress();
+
+    }
+
+    else {
+
+        showCyberPopup(
+            "Passwords and private contact or location information should be protected.",
+            "error",
+            "ACCESS DENIED",
+            "🔒"
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   ESCAPE PUZZLE 4
+===================================================== */
+
+function checkCyberSafety(answer) {
+
+    if (escapeSolved.safety) {
+
+        showCyberPopup(
+            "You already solved this puzzle!",
+            "success",
+            "PUZZLE COMPLETE",
+            "✅"
+        );
+
+        return;
+    }
+
+
+    if (answer === "2fa") {
+
+        showCyberPopup(
+            "Two-factor authentication adds another layer of security.",
+            "success",
+            "SECURITY VERIFIED",
+            "🔐"
+        );
+
+        escapeSolved.safety = true;
+
+        escapeCompleted++;
+
+        updateEscapeProgress();
+
+    }
+
+    else {
+
+        showCyberPopup(
+            "Try again! Look for the option that adds an extra security layer.",
+            "error",
+            "INCORRECT",
+            "❌"
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   ESCAPE
+===================================================== */
+
+function escapeRoom() {
+
+    if (escapeCompleted === 4) {
+
+        document
+            .getElementById("escapeScreen")
+            .style.display = "flex";
+
+    }
+
+    else {
+
+        showCyberPopup(
+            "You still have " +
+            (4 - escapeCompleted) +
+            " puzzle(s) remaining.",
+            "error",
+            "THE EXIT IS LOCKED",
+            "🔒"
+        );
+
+    }
+
+}
+
+
+function resetEscapeRoom() {
+
+    escapeCompleted = 0;
+
+    escapeSolved = {
+
+        password: false,
+        phishing: false,
+        personal: false,
+        safety: false
+
+    };
+
+    document
+        .getElementById("escapePassword")
+        .value = "";
+
+    document
+        .getElementById("escapeScreen")
+        .style.display = "none";
+
+    updateEscapeProgress();
+
+}
+
+
+function closeEscapeScreen() {
+
+    document
+        .getElementById("escapeScreen")
+        .style.display = "none";
+
+    showHome();
+
+}
+
+
+/* =====================================================
+   CYBER SAFETY QUIZ
+===================================================== */
+
+const quizQuestions = [
+
+    {
+        question:
+            "Should you share your password with friends?",
+
+        options: [
+            "Yes, if they are close friends",
+            "No, keep it private",
+            "Only online"
+        ],
+
+        answer: 1
+    },
+
+    {
+        question:
+            "What should you do if a stranger messages you online?",
+
+        options: [
+            "Reply with personal information",
+            "Ignore, block or report them",
+            "Meet them"
+        ],
+
+        answer: 1
+    },
+
+    {
+        question:
+            "Is it safe to click unknown links?",
+
+        options: [
+            "Yes, always",
+            "No, check them first",
+            "Only if they look interesting"
+        ],
+
+        answer: 1
+    },
+
+    {
+        question:
+            "What makes a good password?",
+
+        options: [
+            "A strong and unique password",
+            "Your name",
+            "123456"
+        ],
+
+        answer: 0
+    },
+
+    {
+        question:
+            "Which information should you avoid sharing publicly online?",
+
+        options: [
+            "Your favourite colour",
+            "Your favourite game",
+            "Your password"
+        ],
+
+        answer: 2
+    }
+
+];
+
+
+let quizIndex = 0;
+let quizScore = 0;
+let quizAnswered = false;
+
+
+function loadQuizQuestion() {
+
+    const question =
+        quizQuestions[quizIndex];
+
+
+    document
+        .getElementById("quizQuestionNumber")
+        .innerText =
+        "Question " +
+        (quizIndex + 1) +
+        " of " +
+        quizQuestions.length;
+
+
+    document
+        .getElementById("quizQuestion")
+        .innerText =
+        question.question;
+
+
+    const optionsContainer =
+        document.getElementById("quizOptions");
+
+    optionsContainer.innerHTML = "";
+
+    question.options.forEach(function(option, index) {
+
+        const optionElement =
+            document.createElement("div");
+
+        optionElement.className =
+            "quiz-option";
+
+        optionElement.innerText =
+            option;
+
+        optionElement.onclick =
+            function() {
+                answerQuiz(index);
+            };
+
+        optionsContainer.appendChild(optionElement);
+
+    });
+
+
+    document
+        .getElementById("quizNext")
+        .classList.add("hidden");
+
+    quizAnswered = false;
+
+}
+
+
+function answerQuiz(answer) {
+
+    if (quizAnswered) {
+        return;
+    }
+
+    quizAnswered = true;
+
+    const question =
+        quizQuestions[quizIndex];
+
+
+    if (answer === question.answer) {
+
+        quizScore += 100;
+
+        document
+            .getElementById("quizScore")
+            .innerText =
+            quizScore;
+
+        showCyberPopup(
+            "Correct! Great cyber-safety knowledge.",
+            "success",
+            "CORRECT",
+            "✅"
+        );
+
+    }
+
+    else {
+
+        showCyberPopup(
+            "Not quite. Think about the safest choice online.",
+            "error",
+            "INCORRECT",
+            "⚠️"
+        );
+
+    }
+
+
+    document
+        .getElementById("quizNext")
+        .classList.remove("hidden");
+
+}
+
+
+function nextQuizQuestion() {
+
+    quizIndex++;
+
+
+    if (quizIndex >= quizQuestions.length) {
+
+        let result;
+
+        if (quizScore === 500) {
+
+            result =
+                "🏆 CYBER SECURITY EXPERT!";
+
+        }
+
+        else if (quizScore >= 300) {
+
+            result =
+                "🛡️ SECURITY INVESTIGATOR!";
+
+        }
+
+        else if (quizScore >= 200) {
+
+            result =
+                "🔎 CYBER SLEUTH!";
+
+        }
+
+        else {
+
+            result =
+                "🕵️ ROOKIE DETECTIVE!";
+
+        }
+
+
+        showCyberPopup(
+            "Final Score: " +
+            quizScore +
+            "/500\n\n" +
+            result,
+            "success",
+            "QUIZ COMPLETE",
+            "🎉"
+        );
+
+
+        quizIndex = 0;
+        quizScore = 0;
+
+        document
+            .getElementById("quizScore")
+            .innerText = "0";
+
+        loadQuizQuestion();
+
+        return;
+
+    }
+
+
+    loadQuizQuestion();
+
+}
+
+
+/* =====================================================
+   INITIALIZE
+===================================================== */
+
+loadPhishingMessage();
+
+loadQuizQuestion();
+
+updateEscapeProgress();
+
+</script>
+
+</body>
+</html>
